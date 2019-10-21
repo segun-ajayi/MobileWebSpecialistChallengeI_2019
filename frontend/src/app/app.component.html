@@ -1,0 +1,90 @@
+<div id="sidebar-bg">
+
+  <header id="videohead-pro" class="sticky-header">
+    <div id="video-logo-background"><a href="assets/dashboard-home.html"><img src="assets/images/logo-video-layout.png" alt="Logo"></a></div>
+
+    <form [formGroup]="searchForm" (ngSubmit)="search(searchForm.value)">
+        <div id="video-search-header">
+            <div id="search-icon-more"></div>
+            <input type="text" formControlName="search" name="search" placeholder="Search for Movies or TV Series" aria-label="Search">
+            <div *ngIf="searchResult" id="video-search-header-filtering">
+                    <div class="row">
+                        <div class="col-sm extra-padding">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <ul>
+                                        <li style="list-style: none" (click)="reset()" *ngFor="let res of searchResult" [routerLink]="['movie/get/', res.payload.doc.id]"><a style="cursor: pointer">{{ res.payload.doc.data().title }}</a></li>
+                                    </ul>
+                                </div><!-- close .col -->
+                            </div><!-- close .row -->
+                        </div><!-- close .col -->
+                    </div><!-- close .row -->
+                    <div id="video-search-header-buttons">
+                        <a (click)="reset()" class="btn">Reset</a>
+                    </div>
+            </div><!-- close #video-search-header-filtering -->
+        </div>
+    </form>
+    <div id="mobile-bars-icon-pro" class="noselect"><i class="fas fa-bars"></i></div>
+
+
+    <div *ngIf="user" id="header-user-profile">
+      <div id="header-user-profile-click" class="noselect">
+        <img src="assets/images/demo/user-profile.jpg" alt="Suzie">
+        <div id="header-username">{{ user.email }} <span><a href="" (click)="logout()"><span class="icon-Power-3"></span>Log Out</a></span></div><i class="fas fa-angle-down"></i>
+      </div>
+    </div><!-- close #header-user-profile -->
+
+    <button *ngIf="!user" style="margin-right: 20px" class="btn btn-header-pro noselect" data-toggle="modal" data-target="#LoginModal" role="button">Sign In</button>
+
+    <div class="clearfix"></div>
+
+  </header>
+  <app-navbar *ngIf="user" [loggedIn]="loggedIn"></app-navbar>
+  <main id="col-main">
+    <router-outlet></router-outlet>
+  </main>
+
+
+
+
+</div><!-- close #sidebar-bg-->
+<div class="modal fade" id="LoginModal" tabindex="-1" role="dialog" aria-labelledby="LoginModal" aria-hidden="true">
+  <button type="button" class="close float-close-pro" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+  <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+    <div class="modal-content">
+      <div class="modal-header-pro">
+        <h2>Welcome Back</h2>
+        <h6>Sign in to your account to continue using GADSP II</h6>
+      </div>
+      <div class="modal-body-pro social-login-modal-body-pro">
+
+        <form [formGroup]="loginForm" (ngSubmit)="login(loginForm.value)">
+          <div class="form-group">
+            <input formControlName="email" type="email" class="form-control" name="email" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <input formControlName="password" type="password" class="form-control" name="password" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-green-pro btn-display-block">Sign In</button>
+          </div>
+          <div class="container-fluid">
+            <div class="row no-gutters">
+              <div class="col checkbox-remember-pro"><input type="checkbox" id="checkbox-remember"><label for="checkbox-remember" class="col-form-label">Remember me</label></div>
+              <div class="col forgot-your-password"><a href="#!">Forgot your password?</a></div>
+            </div>
+          </div><!-- close .container-fluid -->
+
+        </form>
+      </div><!-- close .modal-body -->
+
+      <a class="not-a-member-pro" href="register">Not a member? <span>Join Today!</span></a>
+    </div><!-- close .modal-content -->
+  </div><!-- close .modal-dialog -->
+</div>
+
+
+

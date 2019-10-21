@@ -1,0 +1,32 @@
+<ul class="dashboard-genres-pro">
+    <li *ngFor="let gen of genre" [class.active]="sort === gen.payload.doc.data().title" (click)="sortBy(gen.payload.doc.data().title)">
+        <img src="{{ gen.payload.doc.data().imageUrl }}" alt="{{ gen.payload.doc.data().title }}">
+        <h6>{{ gen.payload.doc.data().title }}</h6>
+    </li>
+</ul>
+
+<div class="clearfix"></div>
+
+<div class="dashboard-container">
+
+    <h4 class="heading-extra-margin-bottom">{{ title }}</h4>
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let movie of visibleMovies">
+            <app-movie-item [movie]="movie"></app-movie-item>
+        </div>
+    </div><!-- close .row -->
+
+
+<!--    <ul class="page-numbers">-->
+<!--        <li><a class="previous page-numbers" href="#!"><i class="fas fa-chevron-left"></i></a></li>-->
+<!--        <li><span class="page-numbers current">1</span></li>-->
+<!--        <li><a class="page-numbers" href="#!">2</a></li>-->
+<!--        <li><a class="page-numbers" href="#!">3</a></li>-->
+<!--        <li><a class="page-numbers" href="#!">4</a></li>-->
+<!--        <li><a class="next page-numbers" href="#!"><i class="fas fa-chevron-right"></i></a></li>-->
+<!--    </ul>-->
+
+
+</div>
+<app-create-genre></app-create-genre>
+<app-create-movie></app-create-movie>

@@ -1,0 +1,65 @@
+<div class="modal fade" id="createMovieModal" tabindex="-1" role="dialog" aria-labelledby="LoginModal" aria-hidden="true">
+    <button type="button" class="close float-close-pro" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    <div class="modal-dialog modal-dialog-centered modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header-pro">
+                <h2>Create Genre</h2>
+            </div>
+            <div class="modal-body-pro social-login-modal-body-pro">
+
+                <form [formGroup]="createMovieForm" (ngSubmit)="save(createMovieForm.value)">
+                    <div class="form-group">
+                        <input formControlName="title" type="text" class="form-control" name="title" placeholder="Tile">
+                    </div>
+                    <div class="form-group">
+                        <input formControlName="image" type="text" class="form-control" name="image" placeholder="Image Url">
+                    </div>
+                    <div class="form-group">
+                        <input formControlName="actors" type="text" class="form-control" name="actors" placeholder="Actors separated by commas">
+                    </div>
+                    <div class="form-group">
+                        <input formControlName="language" type="text" class="form-control" name="language" placeholder="Language">
+                    </div>
+                    <div class="form-group">
+                        <input formControlName="rating" type="text" class="form-control" name="rating" placeholder="Rating">
+                    </div>
+                    <div class="form-group">
+                        <input formControlName="releaseYear" type="text" class="form-control" name="releaseYear" placeholder="Release Year">
+                    </div>
+                    <div class="form-group">
+                        <input formControlName="runtime" type="number" class="form-control" name="runtime" placeholder="Run Time in minutes">
+                    </div>
+                    <div class="form-group">
+                        <input formControlName="director" type="text" class="form-control" name="director" placeholder="Director">
+                    </div>
+                    <div class="form-group">
+                        <input formControlName="writer" type="text" class="form-control" name="writer" placeholder="Writer">
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" class="form-control" (click)="check($event.target.checked, 'sci-fi')" name="genre" value="sci-fi"> Sci-Fi
+                        <input type="checkbox" class="form-control" (click)="check($event.target.checked, 'action')" name="genre" value="action"> Action
+                        <input type="checkbox" class="form-control" (click)="check($event.target.checked, 'romance')" name="genre" value="romance"> Romance
+                        <input type="checkbox" class="form-control" (click)="check($event.target.checked, 'documentary')" name="genre" value="documentary"> Documentary
+                        <input type="checkbox" class="form-control" (click)="check($event.target.checked, 'western')" name="genre" value="western"> Western
+                        <input type="checkbox" class="form-control" (click)="check($event.target.checked, 'thriller')" name="genre" value="thriller"> Thriller
+                        <input type="checkbox" class="form-control" (click)="check($event.target.checked, 'animation')" name="genre" value="animation"> Animation
+                        <input type="checkbox" class="form-control" (click)="check($event.target.checked, 'adventure')" name="genre" value="adventure"> Adventure
+                        <input type="checkbox" class="form-control" (click)="check($event.target.checked, 'horror')" name="genre" value="horror"> Horror
+                        <input type="checkbox" class="form-control" (click)="check($event.target.checked, 'fantasy')" name="genre" value="fantasy"> Fantasy
+                        <input type="checkbox" class="form-control" (click)="check($event.target.checked, 'comedy')" name="genre" value="comedy"> Comedy
+                        <input type="checkbox" class="form-control" (click)="check($event.target.checked, 'drama')" name="genre" value="drama"> Drama
+                    </div>
+                    <div class="form-group">
+                        <textarea formControlName="description" class="form-control" name="description" placeholder="Plot">Plot</textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-green-pro btn-display-block">Save</button>
+                    </div>
+
+                </form>
+            </div>
+        </div><!-- close .modal-content -->
+    </div><!-- close .modal-dialog -->
+</div>

@@ -1,0 +1,34 @@
+<form [formGroup]="registerForm" (ngSubmit)="doSignup(registerForm.value)" class="registration-steps-form">
+        <div class="form-group" [ngClass]="{'error' : registerForm.controls.fullname.invalid &&
+                    registerForm.controls.fullname.touched }">
+            <label for="full-name" class="col-form-label">Full Name</label>
+            <input formControlName="fullname" name="fullname" type="text" class="form-control" id="full-name" placeholder="John Doe">
+            <em *ngIf="registerForm.controls.fullname.invalid">Required</em>
+        </div>
+        <div class="form-group" [ngClass]="{'error' : registerForm.controls.email.invalid &&
+                    registerForm.controls.email.touched }">
+            <label for="email" class="col-form-label">Email</label>
+            <input formControlName="email" name="email" type="text" class="form-control" id="email" placeholder="jondoe@gmail.com">
+            <em *ngIf="registerForm.controls.email?.invalid">Required and must be a valid email</em>
+        </div>
+        <div class="form-group" [ngClass]="{'error' : registerForm.controls.password.invalid &&
+                    registerForm.controls.password.touched }">
+            <div class="row">
+                <div class="col">
+                    <label for="password" class="col-form-label">Password</label>
+                    <input formControlName="password" name="password" type="password" class="form-control" id="password" placeholder="password">
+                    <em *ngIf="registerForm.controls.password?.invalid">Must be more than 6 characters</em>
+                </div>
+
+                <div class="col">
+                    <label for="confirm-password" class="col-form-label">&nbsp;</label>
+                    <input formControlName="password2" name="password2" type="password" class="form-control" id="confirm-password" placeholder="Confirm Password">
+                    <em *ngIf="registerForm.controls.password2?.invalid">Both passwords must match</em>
+                </div>
+            </div>
+        </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-green-pro btn-display-block">Sign Up</button>
+    </div>
+</form>

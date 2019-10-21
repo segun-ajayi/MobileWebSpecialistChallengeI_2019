@@ -1,0 +1,152 @@
+<div id="content-sidebar-pro">
+
+    <div id="content-sidebar-image">
+        <img src="{{ movie.image }}" alt="Movie Poster">
+    </div>
+
+    <div class="content-sidebar-section">
+        <h2 class="content-sidebar-sub-header">{{ movie.title }}</h2>
+        <ul class="progression-studios-slider-rating">
+            <li>PG-13</li><li>HD</li>
+        </ul>
+    </div><!-- close .content-sidebar-section -->
+
+    <div class="content-sidebar-section">
+        <h4 class="content-sidebar-sub-header">Release Year</h4>
+        <div class="content-sidebar-short-description">{{ movie.releaseYear }}</div>
+    </div><!-- close .content-sidebar-section -->
+
+    <div class="content-sidebar-section">
+        <h4 class="content-sidebar-sub-header">Length</h4>
+        <div class="content-sidebar-short-description">{{ movie.runtime }}</div>
+    </div><!-- close .content-sidebar-section -->
+
+    <div class="content-sidebar-section">
+        <h4 class="content-sidebar-sub-header">Director</h4>
+        <div class="content-sidebar-short-description">{{ movie.director }}</div>
+    </div><!-- close .content-sidebar-section -->
+
+    <div class="content-sidebar-section">
+        <h4 class="content-sidebar-sub-header">Writer</h4>
+        <div class="content-sidebar-short-description">{{ movie.writer }}</div>
+    </div><!-- close .content-sidebar-section -->
+
+    <div class="content-sidebar-section">
+        <h4 class="content-sidebar-sub-header">Language</h4>
+        <div class="content-sidebar-short-description">{{ movie.language }}</div>
+    </div><!-- close .content-sidebar-section -->
+
+    <div class="content-sidebar-section">
+        <h4 class="content-sidebar-sub-header">Genre</h4>
+        <div *ngFor="let gen of movie.genre" class="content-sidebar-short-description">{{ gen }}</div>
+    </div><!-- close .content-sidebar-section -->
+
+
+</div><!-- close #content-sidebar-pro -->
+
+
+<main id="col-main-with-sidebar">
+
+    <div id="movie-detail-header-pro" style="background-image:url('http://via.placeholder.com/1442x775')">
+
+        <div class="progression-studios-slider-more-options">
+            <i class="fas fa-ellipsis-h"></i>
+            <ul>
+                <li><a style="cursor: pointer" (click)="addFavourite()">Add to Favorites</a></li>
+            </ul>
+        </div>
+
+        <a class="movie-detail-header-play-btn afterglow" href="#VideoLightbox-1"><i class="fas fa-play"></i></a>
+
+        <video id="VideoLightbox-1"  poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg?v1" width="960" height="540">
+            <source src="https://youtu.be/DpSaTrW4leg" type="video/mp4">
+            <source src="https://youtu.be/DpSaTrW4leg" type="video/webm">
+        </video>
+
+        <div id="movie-detail-header-media">
+            <div class="dashboard-container">
+                <h5>Media</h5>
+                <div class="row">
+                    <div class="col-6 col-md-4 col-lg-4">
+                        <a class="movie-detail-media-link afterglow" href="#VideoLightbox-1">
+                            <div class="movie-detail-media-image">
+                                <img src="http://via.placeholder.com/500x300">
+                                <span><i class="fas fa-play"></i></span>
+                                <h6>Trailer</h6>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-4">
+                        <a class="movie-detail-media-link afterglow" href="#VideoLightbox-1">
+                            <div class="movie-detail-media-image">
+                                <img src="http://via.placeholder.com/500x300">
+                                <span><i class="fas fa-play"></i></span>
+                                <h6>Interview</h6>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-4">
+                        <a class="movie-detail-media-link" href="#!">
+                            <div class="movie-detail-media-image">
+                                <img src="http://via.placeholder.com/500x300">
+                                <span><i class="fas fa-play"></i></span>
+                                <h6>Movie Stills</h6>
+                            </div>
+                        </a>
+                    </div>
+                </div><!-- close .row -->
+            </div><!-- close .dashboard-container -->
+        </div><!-- close #movie-detail-header-media -->
+
+        <div id="movie-detail-gradient-pro"></div>
+    </div><!-- close #movie-detail-header-pro -->
+
+
+    <div id="movie-detail-rating">
+        <div class="dashboard-container">
+            <div class="row">
+                <div class="col-sm">
+                    <h6>Rating</h6>
+                    <div
+                            class="circle-rating-pro"
+                            [attr.data-value]="movie.rating / 10"
+                            [attr.data-animation-start-value]="movie.rating / 10"
+                            data-size="40"
+                            data-thickness="3"
+                            data-fill="{
+					          &quot;color&quot;: &quot;#42b740&quot;
+					        }"
+                            data-empty-fill="#def6de"
+                            data-reverse="true"
+                    ><span style="color:#42b740;">{{ movie.rating }}</span></div>
+                    <div class="clearfix"></div>
+                </div>
+            </div><!-- close .row -->
+        </div><!-- close .dashboard-container -->
+    </div><!-- close #movie-detail-rating -->
+
+    <div class="dashboard-container">
+
+
+        <div class="movie-details-section">
+            <h2>Storyline</h2>
+            <p>{{movie.description}}</p>
+        </div><!-- close .movie-details-section -->
+
+        <div class="movie-details-section">
+            <h2>The Cast</h2>
+            <div class="row">
+                <div class="col-12 col-md-6 col-lg-6 col-xl-4">
+                    <div class="item-listing-container-skrn">
+                        <a href="#!"><img src="http://via.placeholder.com/507x672" alt="Cast"></a>
+                        <div class="item-listing-text-skrn item-listing-movie-casting">
+                            <h6><a href="#!">{{ movie.actors }}</a></h6>
+                            <div class="movie-casting-sub-title">{{ movie.actors }}</div>
+                        </div><!-- close .item-listing-text-skrn -->
+                    </div><!-- close .item-listing-container-skrn -->
+                </div><!-- close .col -->
+            </div><!-- close .row -->
+        </div><!-- close .movie-details-section -->
+
+    </div><!-- close .dashboard-container -->
+</main>

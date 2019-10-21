@@ -1,0 +1,21 @@
+
+    <div class="item-listing-container-skrn" [routerLink]="['/movie/get/', movie.payload.doc.id]">
+        <a style="cursor: pointer"><img src="{{movie.payload.doc.data().image}}" alt="Listing"></a>
+        <div class="item-listing-text-skrn">
+            <div class="item-listing-text-skrn-vertical-align"><h6><a style="cursor: pointer" >{{ movie.payload.doc.data().title }}</a></h6>
+                <div
+                        class="circle-rating-pro"
+                        [attr.data-value]="movie.payload.doc.data().rating / 10"
+                        [attr.data-animation-start-value]="movie.payload.doc.data().rating / 10"
+                        data-size="32"
+                        data-thickness="3"
+                        data-fill="{
+							          &quot;color&quot;: &quot;#42b740&quot;
+							        }"
+                        data-empty-fill="#def6de"
+                        data-reverse="true"
+                ><span style="color:#42b740;">{{movie.payload.doc.data().rating}}</span></div>
+            </div><!-- close .item-listing-text-skrn-vertical-align -->
+        </div><!-- close .item-listing-text-skrn -->
+    </div><!-- close .item-listing-container-skrn -->
+

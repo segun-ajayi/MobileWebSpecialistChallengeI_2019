@@ -1,0 +1,80 @@
+
+
+<nav id="mobile-navigation-pro">
+
+    <ul id="mobile-menu-pro">
+        <li class="current-menu-item">
+            <a href="dashboard-home.html">
+                <span class="icon-Old-TV"></span>
+                TV Series
+            </a>
+        <li>
+        <li>
+            <a href="dashboard-movies.html">
+                <span class="icon-Reel"></span>
+                Movies
+            </a>
+        </li>
+        <li>
+            <a href="dashboard-playlists.html">
+                <span class="icon-Movie"></span>
+                Playlists
+            </a>
+        </li>
+        <li>
+            <a href="dashboard-new-arrivals.html">
+                <span class="icon-Movie-Ticket"></span>
+                New Arrivals
+            </a>
+        </li>
+        <li>
+            <a href="dashboard-coming-soon.html">
+                <span class="icon-Clock"></span>
+                Coming Soon
+            </a>
+        </li>
+        <li>
+            <a href="#!">
+                <i class="far fa-bell"></i>
+                <span class="user-notification-count">3</span>
+                Notifications
+            </a>
+        </li>
+    </ul>
+    <div class="clearfix"></div>
+
+    <div id="search-mobile-nav-pro">
+        <input type="text" placeholder="Search for Movies or TV Series" aria-label="Search">
+    </div>
+
+</nav>
+<nav id="sidebar-nav"><!-- Add class="sticky-sidebar-js" for auto-height sidebar -->
+    <ul id="vertical-sidebar-nav" class="sf-menu">
+        <li *ngIf="isAdmin" class="normal-item-pro current-menu-item">
+            <a href="" data-toggle="modal" data-target="#createGenreModal">
+                <span class="icon-Movie"></span>
+                Create Genre
+            </a>
+        </li>
+        <li *ngIf="isAdmin" class="normal-item-pro current-menu-item">
+            <a href="" data-toggle="modal" data-target="#createMovieModal">
+                <span class="icon-Movie"></span>
+                Create Movie
+            </a>
+        </li>
+        <li class="normal-item-pro">
+            <a href="" [routerLink]="['movies']">
+                <span class="icon-Reel"></span>
+                Movies
+            </a>
+        </li>
+        <li class="normal-item-pro">
+            <a href="" [routerLink]="['movies/favorites']">
+                <span class="icon-Movie"></span>
+                My Favorites
+            </a>
+        </li>
+
+    </ul>
+    <div class="clearfix"></div>
+</nav>
